@@ -3,17 +3,22 @@ import math
 from csv import writer
 
 import requests
+
 header_names = ['FIRST_NAME', 'LAST_NAME', 'GENDER', 'LOCATION_OF_MEDICAL_TRAINING', 'PROFESSIONAL_DEGREE_FROM',
-                    'SERVICE_LINE', 'PARENT_FACILITY', 'ADDRESS', 'CITY', 'STATE', 'ZIP', 'OCCUPATION', 'SITE']
+                'SERVICE_LINE', 'PARENT_FACILITY', 'ADDRESS', 'CITY', 'STATE', 'ZIP', 'OCCUPATION', 'SITE']
 file_path = "C:\\Temp\\output\\provider.csv"
+
+
 def write_header():
     with open(file_path, 'w', newline='') as f_object:
         writer_object = writer(f_object, delimiter=',', quotechar='"')
         writer_object.writerow(header_names)
         f_object.close()
 
-def append_data(data1):
 
+def append_data(data1: "line with comma separation") -> "None":
+    """Function: appends line (comma separated array)
+    into file"""
     with open(file_path, 'a', newline='') as f_object:
         writer_object = writer(f_object, quotechar='"')
         writer_object.writerow(data1)

@@ -22,6 +22,9 @@ WINNING_PATTERNS = (
 
 
 class Mark(str, enum.Enum):
+    """Consider this as player marks,
+    this will be used as two singleton instances
+    """
     CROSS = "X"
     NAUGHT = "O"
 
